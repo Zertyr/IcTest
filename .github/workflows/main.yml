@@ -25,9 +25,21 @@ jobs:
       run: echo $variableGlobal
     - name: Exemple d'utilisation de variable d'environnement du job
       run: echo $variableJob1
-    - name: Exemple d'utilisation de variable d'environnement de la step 2
+    - name: Exemple d'utilisation de condition sur la variable d'environnement de la step 2
       if: ${{ env.MY_VARIABLE == 'Hello, World!' }}
       run: echo "My_variable a la bonne valeur"
-    - name: Exemple d'utilisation de variable d'environnement de la step 2 2
+    - name: Exemple d'utilisation de condition contraire sur la variable d'environnement de la step 2 2
       if: ${{ env.MY_VARIABLE != 'Hello, World!' }}
       run: echo "La variable a pas la bonne valeur"
+    - name: Exemple d'utilisation de condition sur la variable d'environnement global de la step 
+      if: ${{ env.variableGlobal == 'Je suis une variable accessible dans tout le job' }}
+      run: echo "variableGlobal a la bonne valeur"
+    - name: Exemple d'utilisation de condition contraire sur la variable d'environnement global de la step
+      if: ${{ env.variableGlobal != 'Je suis une variable accessible dans tout le job' }}
+      run: echo "variableGlobal a pas la bonne valeur"
+    - name: Exemple d'utilisation de condition sur la variable d'environnement du job
+      if: ${{ env.variableJob1 == 'Je suis une variable accessible dans tout le job' }}
+      run: echo "variableJob1 a la bonne valeur"
+    - name: Exemple d'utilisation de condition contraire sur la variable d'environnement du job
+      if: ${{ env.variableJob1 != 'Je suis une variable accessible dans tout le job' }}
+      run: echo "variableJob1 a pas la bonne valeur"
