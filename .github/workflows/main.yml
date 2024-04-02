@@ -9,9 +9,21 @@ jobs:
     env:
       variableJob1: "Je suis une variable accessible dans tout le job"
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - run: echo "Hello World !"
-      - run: echo $variableGlobal
-      - run: echo $variableJob1
+    - name: Exemple Hello world
+      run: echo "Hello World !"
+    - name: Exemple d'utilisation de variable d'environnement de la step
+      env:
+        MY_VARIABLE: "Hello, World!"
+      run: echo $MY_VARIABLE
+    - name: Exemple de récuperation du nom du trigger
+      run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    - name: Exemple de récuperation du nom de l'environnement host
+      run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+    - name: Exemple de récuperation du nom de la branch et du repository
+      run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+    - name: Exemple d'utilisation de variable d'environnement global
+      run: echo $variableGlobal
+    - name: Exemple d'utilisation de variable d'environnement du job
+      run: echo $variableJob1
+    - name: Exemple d'utilisation de variable d'environnement de la step 2
+      run: echo $MY_VARIABLE
