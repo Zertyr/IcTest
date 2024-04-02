@@ -43,3 +43,5 @@ jobs:
     - name: Exemple d'utilisation de condition contraire sur la variable d'environnement du job
       if: ${{ env.variableJob1 != 'Je suis une variable accessible dans tout le job' }}
       run: echo "variableJob1 a pas la bonne valeur"
+    - name: Exemple d'utilisation d'un secret
+      run: echo ${{secrets.MYSQL_PASSWORD}}
