@@ -29,5 +29,5 @@ jobs:
       if: ${{ env.MY_VARIABLE == "Hello, World!" }}
       run: echo "My_variable a la bonne valeur"
     - name: Exemple d'utilisation de variable d'environnement de la step 2 2
-      if: ${{ env.MY_VARIABLE != 'Hello, World!' }}
+      if: ${{ env.MY_VARIABLE != "Hello, World!" }}
       run: echo "La variable a pas la bonne valeur"
