@@ -1,0 +1,13 @@
+name: Issue oppened
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notify_on_issue_creation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Notification sur la création d'une issue
+      run: echo "Une nouvelle issue a été créée"
