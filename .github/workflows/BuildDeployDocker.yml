@@ -21,13 +21,13 @@ jobs:
         export CURRENT_DATETIME=$(date '+%Y%m%d%H%M%S')
 
     - name: Construction de l'image Docker
-      run: docker build -t mon_application_angular:$CURRENT_DATETIME .
+      run: docker build -t ictest:$CURRENT_DATETIME .
 
     - name: Exécution du conteneur Docker
-      run: docker run -p 8080:80 mon_application_angular:$CURRENT_DATETIME
+      run: docker run -p 8080:80 ictest:$CURRENT_DATETIME
 
     - name: Tag de l'image Docker
-      run: docker tag mon_application_angular:$CURRENT_DATETIME ${REGISTRY_URL}/mon_application_angular:$CURRENT_DATETIME
+      run: docker tag ictest:$CURRENT_DATETIME ${REGISTRY_URL}/ictest:$CURRENT_DATETIME
 
     - name: Push de l'image Docker vers le registre
-      run: docker push ${REGISTRY_URL}/mon_application_angular:$CURRENT_DATETIME
+      run: docker push ${REGISTRY_URL}/ictest:$CURRENT_DATETIME
