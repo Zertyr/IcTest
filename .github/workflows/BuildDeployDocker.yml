@@ -13,6 +13,9 @@ jobs:
     - name: Checkout du code
       uses: actions/checkout@v2
 
+    - name: check url
+      uses: echo ${{REGISTRY_URL}}
+
     - name: Connexion au registre Docker
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin ${REGISTRY_URL}
 
